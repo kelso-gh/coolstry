@@ -6,6 +6,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import PhotoFeed from '../PhotoFeed/PhotoFeed';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import NavBar from '../../components/NavBar/NavBar';
+import NewPhotoFeed from '../NewPhotoFeed/NewPhotoFeed';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -19,6 +20,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/photos" element={<PhotoFeed />} />
               <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/photos/all" element={<NewPhotoFeed />} />
             </Routes>
           </>
           :

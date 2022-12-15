@@ -1,15 +1,14 @@
-import { checkToken } from '../../utilities/users-service';
+// import { checkToken } from '../../utilities/users-service';
+import ProfileForm from '../../components/ProfileForm/ProfileForm'
 
 export default function ProfilePage() {
-  async function handleCheckToken() {
-    const expDate = await checkToken();
-    console.log(expDate);
-  }
-  
+
   return (
     <>
       <h1>This is the profile page</h1>
-      <button onClick={handleCheckToken}>Check When My Login Expires</button>
+      <ProfileForm />
+      <button onClick="">Edit Profile</button> 
     </>
   );
 }
+

@@ -4,6 +4,9 @@ const Schema = require('mongoose').Schema;
 const photoSchema = new Schema({
     photo: {type: String, required: true },
     description: {type: String, required: true},
+    views: String,
+    likes: String,
+    comments: String,
     user: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User'}
 }, { 
     timestamps: true
