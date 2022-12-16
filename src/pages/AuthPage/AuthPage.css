@@ -1,0 +1,37 @@
+.auth-background {
+    background-image: url('https://i.imgur.com/FErrB1I.png');
+    position: relative;
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 105vmin;
+    margin: 0;
+}
+
+.auth-container {
+    color: white;
+    height: 50vh;
+    display: flex;
+    justify-content: left;
+    align-items: end;
+}
+
+.auth-button {
+    background-color: rgb(109,110,113);
+    color: white;
+    position: absolute;
+    top: 50%;
+}
+
+.login-button {
+    background-color: rgb(109,110,113);
+    color: white;
+    /* position: absolute; */
+    top: 50%;
+}
+
+.sign-up {
+    background-color: rgb(109,110,113);
+    color: white;
+    top: 50%;
+}

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import * as photosApi from '../../utilities/photos-api';
 
 export default function NewPhotoFeed() {
     const [q, setq] = useState(''); 
@@ -10,24 +11,24 @@ export default function NewPhotoFeed() {
 
     async function handleSubmit(evt) {
         evt.preventDefault();
-        const r = await fetch(`http://localhost:3001/api/photos/search?q=${q}`).then( res => res.json());
-        setPhotos(r.hits);
+        const findImage = await photosApi.getImgsAPI(q);
+        setPhotos(findImage);
     }
 
     return (
         <>
-            <h1>Enter your search below!</h1>
-            <form onSubmit={handleSubmit}>
+            <label className="search-form">Disover images below</label>
+            <form className="search-form" onSubmit={handleSubmit}>       
                 <input 
                 name="q"
                 type="text"
                 value={q}
                 onChange={handleChange}
                 required />
-                <button type="submit">Find Image</button>
+                <button type="submit">Search</button>
                 {photos.map((photo) => {
                     return (
-                        <div key={photo.id}><img src={photo.previewURL} alt="" /></div>
+                        <div className="discover-imgs" key={photo.id}><img src={photo.largeImageURL}  /></div>
                     );
                 })}
             </form>
