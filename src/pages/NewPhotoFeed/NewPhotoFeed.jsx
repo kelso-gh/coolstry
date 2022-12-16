@@ -1,28 +1,35 @@
 import { useState } from 'react';
 
-export default function NewPhotoFeed({ photos }) {
-    const [findPhoto, setFindPhoto] = useState({
-        photo: '',
-    });
+export default function NewPhotoFeed() {
+    const [q, setq] = useState(''); 
+    const [photos, setPhotos] = useState([]);
 
     function handleChange(evt) {
-        setFindPhoto({ photo: evt.target.value })
+        setq(evt.target.value)
     }
 
-    function handleSubmit(evt) {
+    async function handleSubmit(evt) {
         evt.preventDefault();
-        setFindPhoto({photo: ''})
+        const r = await fetch(`http://localhost:3001/api/photos/search?q=${q}`).then( res => res.json());
+        setPhotos(r.hits);
     }
 
     return (
         <>
             <h1>Enter your search below!</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input 
-                type="text" 
-                onChange={handleChange} 
+                name="q"
+                type="text"
+                value={q}
+                onChange={handleChange}
                 required />
-                <button onClick={handleSubmit}>FIND</button>
+                <button type="submit">Find Image</button>
+                {photos.map((photo) => {
+                    return (
+                        <div key={photo.id}><img src={photo.previewURL} alt="" /></div>
+                    );
+                })}
             </form>
         </>
     );
