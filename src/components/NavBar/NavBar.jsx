@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
+import "../../pages/App/App.css"
 
 export default function NavBar({ user, setUser }) {
   function handleLogOut() {
@@ -8,7 +9,7 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <nav>
+    <nav className="nav-bar">
       <span>Welcome, {user.name}. What's the story?</span>
       &nbsp;&nbsp;
       <Link to="/profile">My Profile</Link>
