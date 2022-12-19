@@ -7,8 +7,9 @@ module.exports = {
 }
 
 async function create(req, res) {
-    req.body.profile = req.profile._id;
+    req.profile.user = req.user._id;
     const profile = await Profile.create(req.body);
+    console.log(profile);
     res.json(profile);
 }
 

@@ -2,16 +2,22 @@ import { useState } from 'react';
 import ProfileForm from '../../components/ProfileForm/ProfileForm'
 import './ProfilePage.css'
 
-export default function ProfilePage() {
+export default function ProfilePage({ profile }) {
   const [showProfile, setShowProfile] = useState(true);
+
   return (
     <>
       <button 
       onClick={() => setShowProfile (!showProfile)}>Edit Profile</button> 
       { showProfile ?
-        <ProfileInfo />
+      <>
+      {profile.profilePicturURL}
+      {profile.name}
+      {profile.location}
+      {profile.interests}
+        </>
         :
-        <ProfileForm />
+        <ProfileForm profile={profile}/>
       }
     </>
   );
