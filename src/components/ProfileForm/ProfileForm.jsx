@@ -1,25 +1,25 @@
 import '../ProfileForm/ProfileForm.css'
-import * as usersAPI from '../../utilities/users-api'
+import * as profilesAPI from '../../utilities/profiles-api'
 
 
 export default function ProfileForm() {
-    const [users, setUsers] = useState('');
+    const [profiles, setProfiles] = useState('');
 
     async function handleSubmit(evt) {
         evt.preventDefault();
-        const findUser = await usersAPI.getUsersAPI();
-        setUsers(findUser);
+        const profileData = await create.profilesAPI();
+        setProfiles(profileData);
     }
 
-    return (
+return (
         
-            <form className="profile-edit" onSubmit={handleSubmit}>
-            <ul>
-                <li>Name: <input type="text" required /> </li>
-                <li>Location: <input type="text" /></li>
-                <li>Interests: <input type="text" /></li>
-                <button>Save Changes</button>
-            </ul>
-            </form>
+    <form className="profile-edit" onSubmit={handleSubmit}>
+        <ul>
+            <li>Name: <input type="text" required /> </li>
+            <li>Location: <input type="text" /></li>
+            <li>Interests: <input type="text" /></li>
+            <button>Save Changes</button>
+        </ul>
+    </form>
     );
 }
