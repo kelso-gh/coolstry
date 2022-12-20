@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as photosApi from '../../utilities/photos-api';
 import '../NewPhotoFeed/NewPhotoFeed.css'
 
 export default function NewPhotoFeed() {
     const [q, setq] = useState(''); 
     const [photos, setPhotos] = useState([]);
+    const navigate = useNavigate();
 
     function handleChange(evt) {
         setq(evt.target.value)
@@ -14,6 +16,11 @@ export default function NewPhotoFeed() {
         evt.preventDefault();
         const findImage = await photosApi.getImgsAPI(q);
         setPhotos(findImage);
+    }
+
+    async function handleAddToFeed(apiId) {
+        await photosApi.addToFeed(apiId);
+        navigate('/feed');
     }
 
     return (
@@ -27,12 +34,15 @@ export default function NewPhotoFeed() {
                 onChange={handleChange}
                 required />
                 <button type="submit">Search</button>
-                {photos.map((photo) => {
-                    return (
-                        <div className="discover-container" key={photo.id}><img className="discover-imgs" src={photo.previewURL}  /></div>
-                    );
-                })}
             </form>
+            {photos.map((photo) => {
+                return (
+                    <div className="discover-container" key={photo.id}>
+                        <img className="discover-imgs" src={photo.previewURL}  />
+                        <button onClick={() => handleAddToFeed(photo.id)}>Add To Feed</button>
+                    </div>
+                );
+            })}
         </>
     );
 }
