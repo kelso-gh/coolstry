@@ -14,3 +14,6 @@ export async function addToFeed(apiId) {
     return sendRequest(`${BASE_URL}/feeds/${apiId}`, 'POST');
 }
 
+export async function removeFromFeed(apiId) {
+    return sendRequest(`${BASE_URL}/feeds/${apiId}`, 'DELETE');
+}

@@ -3,7 +3,8 @@ const Photo = require('../../models/photo');
 module.exports = {
    searchApi,
    addToFeed,
-   getFeed 
+   getFeed,
+   removeFromFeed, 
 }
 
 async function searchApi(req, res) {
@@ -11,6 +12,12 @@ async function searchApi(req, res) {
     const photos = await fetch(`https://pixabay.com/api/?key=32083904-50471c20c3570b6956fc70c33&q=${req.query.q}&image_type=photo`).then(r => r.json()).then(data => data.hits);
     console.log(photos);
     res.json(photos);
+}
+
+async function removeFromFeed(req, res) {
+    const photos = await Photo.findOneAndDelete(req.params.id);
+    console.log(photos)
+    res.json(photos)
 }
 
 async function addToFeed(req, res) {

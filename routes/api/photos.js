@@ -8,5 +8,7 @@ router.get('/search', photosCtrl.searchApi);
 router.post('/feeds/:apiId', photosCtrl.addToFeed);
 // GET /api/photos/feeds
 router.get('/feeds', photosCtrl.getFeed);
+// DELETE /api/photos/feeds
+router.delete('/feeds/:apiId', photosCtrl.removeFromFeed);
 
 module.exports = router;
