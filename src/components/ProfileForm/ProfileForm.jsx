@@ -5,16 +5,20 @@ import * as profilesAPI from '../../utilities/profiles-api'
 
 export default function ProfileForm({ profile, setProfile }) {
    const [profileFormData, setProfileFormData] = useState({
-    name: profile.name
+    name: profile.name,
+    location: profile.location,
+    interests: profile.interests
    });
 
    function handleChange(evt) {
-    setProfileFormData({[evt.target.name]:evt.target.value})
+    setProfileFormData({...profileFormData, [evt.target.name]:evt.target.value})
+    // console.log({[evt.target.name]:evt.target.value});
    }
 
    async function handleSubmit(evt) {
     evt.preventDefault();
     const updateProfile = await profilesAPI.update(profileFormData);
+    console.log(updateProfile);
     setProfile(updateProfile);
    }
    
@@ -30,8 +34,16 @@ return (
             name="name"
             onChange={handleChange}
             /> </li>
-            <li>Location: <input type="text" /></li>
-            <li>Interests: <input type="text" /></li>
+            <li>Location: <input 
+             type="text" 
+             value={profileFormData.location}
+             name="location"
+             onChange={handleChange}/></li>
+            <li>Interests: <input 
+             type="text" 
+             value={profileFormData.interests}
+             name="interests"
+             onChange={handleChange} /></li>
             <button type="submit">Save Changes</button>
         </ul>
     </form>

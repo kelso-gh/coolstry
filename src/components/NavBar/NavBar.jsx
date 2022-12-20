@@ -14,7 +14,7 @@ export default function NavBar({ user, setUser }) {
       &nbsp;&nbsp;
       <Link to="/profile">My Profile</Link>
       &nbsp; | &nbsp;
-      <Link to="/photos">Photo Feed</Link>
+      <Link to="/*">Photo Feed</Link>
       &nbsp; | &nbsp;
       <Link to="/photos/all">Discover</Link>
       &nbsp; | &nbsp;

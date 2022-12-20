@@ -11,7 +11,6 @@ export default function ProfilePage({ profile }) {
       onClick={() => setShowProfile (!showProfile)}>Edit Profile</button> 
       { showProfile ?
       <>
-      {profile.profilePicturURL}
       {profile.name}
       {profile.location}
       {profile.interests}

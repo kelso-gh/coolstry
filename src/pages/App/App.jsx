@@ -22,7 +22,7 @@ export default function App() {
             <NavBar user={user} setUser={setUser} />
             <Routes>
               {/* Route components in here */}
-              <Route path="/photos" element={<PhotoFeed />} />
+              <Route path="/*" element={<PhotoFeed />} />
               <Route path="/profile" element={<ProfilePage profile = {profile} />} />
               <Route path="/photos/all" element={<NewPhotoFeed />} />
             </Routes>
