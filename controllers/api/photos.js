@@ -27,7 +27,7 @@ async function addToFeed(req, res) {
     res.json(photo);
 }
 
-async function getFeed(res, req) {
+async function getFeed(req, res) {
     const photos = await Photo.find({user: req.user._id});
     res.json(photos);
 }

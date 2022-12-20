@@ -15,7 +15,14 @@ export default function PhotoFeed({ user }) {
   return (
     <>
     <h1>This is the Photo Feed</h1>
-    
+    {photos.map((photo) => {
+                return (
+                    <div className="discover-container" key={photo.id}>
+                        <img className="discover-imgs" src={photo.photo}  />
+            
+                    </div>
+                );
+            })}
     </>
   );
 }
