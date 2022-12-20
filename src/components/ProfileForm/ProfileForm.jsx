@@ -1,5 +1,5 @@
 import '../ProfileForm/ProfileForm.css'
-import { useState} from 'react';
+import { useState } from 'react';
 import * as profilesAPI from '../../utilities/profiles-api'
 
 
@@ -27,7 +27,6 @@ return (
     <form className="profile-form"
         onSubmit={handleSubmit}>
         <ul>
-            <li>Photo: <input type="text"></input></li>
             <li>Name: <input 
             type="text" 
             value={profileFormData.name}

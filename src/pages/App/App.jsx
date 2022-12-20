@@ -23,7 +23,7 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               <Route path="/*" element={<PhotoFeed />} />
-              <Route path="/profile" element={<ProfilePage profile = {profile} />} />
+              <Route path="/profile" element={<ProfilePage profile = {profile} setProfile = {setProfile} />} />
               <Route path="/photos/all" element={<NewPhotoFeed />} />
             </Routes>
           </>

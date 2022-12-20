@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as photosApi from '../../utilities/photos-api';
+import '../NewPhotoFeed/NewPhotoFeed.css'
 
 export default function NewPhotoFeed() {
     const [q, setq] = useState(''); 
@@ -28,7 +29,7 @@ export default function NewPhotoFeed() {
                 <button type="submit">Search</button>
                 {photos.map((photo) => {
                     return (
-                        <div className="discover-imgs" key={photo.id}><img src={photo.largeImageURL}  /></div>
+                        <div className="discover-container" key={photo.id}><img className="discover-imgs" src={photo.previewURL}  /></div>
                     );
                 })}
             </form>
