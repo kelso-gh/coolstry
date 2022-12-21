@@ -5,5 +5,6 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 
 router.put('/update', profilesCTRL.update);
+router.get('/', profilesCTRL.getProfile);
 
 module.exports = router;

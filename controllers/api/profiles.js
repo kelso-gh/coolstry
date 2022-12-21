@@ -3,6 +3,7 @@ const Profile = require('../../models/profile');
 
 module.exports = {
     update,
+    getProfile
 }
 
 
@@ -19,3 +20,7 @@ async function update(req, res) {
     }
 }
 
+async function getProfile(req, res) {
+    const profile = await Profile.findOne({_id: req.user.profile});
+    res.json(profile);
+}
