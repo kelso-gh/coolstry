@@ -1,5 +1,5 @@
 .auth-background {
-    background-image: url('https://i.imgur.com/FErrB1I.png');
+    background-image: url('https://i.imgur.com/UTWGTRF.png');
     position: relative;
     background-position: cover;
     background-repeat: no-repeat;
@@ -9,9 +9,9 @@
 }
 
 .switch-button-container {
+    height: 135px;
     position: relative;
-    display: flex;
-    justify-content: flex-end;
+    display: block;
 }
 
 .switch-button {

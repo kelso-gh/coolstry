@@ -12,7 +12,7 @@
 .signup-container {
     position: relative;
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
 }
 
 .signup-button {
