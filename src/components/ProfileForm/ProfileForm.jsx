@@ -26,25 +26,21 @@ return (
         
     <form className="profile-form"
         onSubmit={handleSubmit}>
-        <ul>
-            <li>Name: <input 
-            type="text" 
-            value={profileFormData.name}
-            name="name"
-            onChange={handleChange}
-            /> </li>
-            <li>Location: <input 
+            <div>Name: <input 
+             type="text" 
+             value={profileFormData.name}
+             name="name"
+             onChange={handleChange} /></div>
+            <div>Location: <input 
              type="text" 
              value={profileFormData.location}
              name="location"
-             onChange={handleChange}/></li>
-            <li>Interests: <input 
+             onChange={handleChange} /></div>
+            <div>Interests: <input 
              type="text" 
              value={profileFormData.interests}
              name="interests"
-             onChange={handleChange} /></li>
-            <button type="submit">Save Changes</button>
-        </ul>
+             onChange={handleChange} /></div>
     </form>
     );
 }

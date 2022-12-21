@@ -16,13 +16,19 @@ export default function ProfilePage({ profile, setProfile }) {
 
   return (
     <>
-      <button 
+    <div className="flex-btn-container">
+      <button className="edit-btn"
       onClick={() => setShowProfile (!showProfile)}>Edit Profile</button> 
+      </div>
       { showProfile ?
       <div className="profile-display">
-      {profile.name}
-      {profile.location}
-      {profile.interests}
+      <li>{profile.name}</li>
+      &nbsp; &nbsp;
+      <li>{profile.location}</li>
+      &nbsp; &nbsp;
+      <li>{profile.interests}</li>
+      &nbsp; &nbsp;
+      <li></li>
         </div>
         :
         <ProfileForm profile={profile} setProfile = {setProfile}/>
