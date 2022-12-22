@@ -6,14 +6,6 @@ import * as profilesApi from '../../utilities/profiles-api'
 export default function ProfilePage({ profile, setProfile }) {
   const [showProfile, setShowProfile] = useState(true);
 
-  // useEffect(function() {
-  //   async function getProfile() {
-  //     const profile = await profilesApi.getProfile();
-  //     setProfile(profile);
-  //   }
-  //   getProfile();
-  // }, []);
-
   return (
     <>
     <div className="flex-btn-container">

@@ -42,7 +42,7 @@ return (
              value={profileFormData.interests}
              name="interests"
              onChange={handleChange} /></div>
-             <button type="submit">Save</button>
+             <button className="search-btn" type="submit">Save</button>
     </form>
     );
 }
