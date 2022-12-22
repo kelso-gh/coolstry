@@ -17,6 +17,7 @@ export default function ProfileForm({ profile, setProfile }) {
 
    async function handleSubmit(evt) {
     evt.preventDefault();
+    console.log(profileFormData);
     const updateProfile = await profilesAPI.update(profileFormData);
     console.log(updateProfile);
     setProfile(updateProfile);
@@ -41,6 +42,7 @@ return (
              value={profileFormData.interests}
              name="interests"
              onChange={handleChange} /></div>
+             <button type="submit">Save</button>
     </form>
     );
 }

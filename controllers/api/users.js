@@ -15,14 +15,11 @@ function checkToken(req, res) {
 }
 
 async function create(req, res) {
-  console.log('hello')
   try {
     const user = await User.create(req.body);
-    console.log(user)
     const profile = await Profile.create({ user: user._id, name: user.name });
     const updatedUser = await User.findOneAndUpdate({_id: user._id}, {profile: profile._id}, {new: true})
-    const token = createJWT(user);
-    console.log(token)
+    const token = createJWT(updatedUser);
     res.json(token);
   } catch (err) {
     res.status(400).json(err);

@@ -7,13 +7,10 @@ import PhotoFeed from '../PhotoFeed/PhotoFeed';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import NavBar from '../../components/NavBar/NavBar';
 import NewPhotoFeed from '../NewPhotoFeed/NewPhotoFeed';
-// import { useEffect } from 'react';
-// import { set } from 'mongoose';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-  const [profile, setProfile] = useState(getUser);
-
+  const [profile, setProfile] = useState(getUser());
   
   return (
     <main className="App">
