@@ -14,7 +14,6 @@ export default function PhotoFeed({ user }) {
   }, [user]);
   
     async function handleRemovePhoto(apiId) {
-      console.log(apiId)
       const updatedPhotos = await photosApi.removeFromFeed(apiId);
       setPhotos(updatedPhotos);
       window.location.reload(false);
@@ -24,12 +23,10 @@ export default function PhotoFeed({ user }) {
     <div className="photo-feed-container">
     {photos.map((photo) => {
                 return (
-                    <>
-                    <div key={photo.id}>
+                    <div key={photo._id}>
                         <img className="photo-feed" src={photo.photo}  />
                     <button className="remove-btn" onClick={() => handleRemovePhoto(photo._id)}>Remove From Feed</button>
-                    </div>
-                    </>
+                    </div>         
                 );
             })}
     </div>

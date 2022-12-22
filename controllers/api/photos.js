@@ -10,13 +10,12 @@ module.exports = {
 async function searchApi(req, res) {
     console.log(req.query.q)
     const photos = await fetch(`https://pixabay.com/api/?key=32083904-50471c20c3570b6956fc70c33&q=${req.query.q}&image_type=photo`).then(r => r.json()).then(data => data.hits);
-    console.log(photos);
     res.json(photos);
 }
 
 async function removeFromFeed(req, res) {
-    const photos = await Photo.findOneAndDelete(req.params.id);
-    console.log(photos)
+    const photos_ = await Photo.findOneAndDelete({_id: req.params.apiId});
+    const photos = await Photo.find({user: req.user._id});
     res.json(photos)
 }
 
