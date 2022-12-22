@@ -11,3 +11,16 @@ input {
     color: gray;
     font-weight: bold;
 }
+
+.profile-form {
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+    align-items: center;
+    height: 130px;
+    background-color: #fee6e3;
+    box-sizing: border-box;
+    border: 2px solid #111;
+    overflow: hidden;
+    white-space: nowrap;
+}

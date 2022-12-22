@@ -1,5 +1,6 @@
 import { useState, useEffect} from 'react';
 import * as photosApi from '../../utilities/photos-api'
+import '../PhotoFeed/PhotoFeed.css'
 
 export default function PhotoFeed({ user }) {
   const [photos, setPhotos] = useState([]);
@@ -20,16 +21,17 @@ export default function PhotoFeed({ user }) {
     }
 
   return (
-    <>
-    <h1>This is the Photo Feed</h1>
+    <div className="photo-feed-container">
     {photos.map((photo) => {
                 return (
-                    <div className="photo-feed-container" key={photo.id}>
+                    <>
+                    <div key={photo.id}>
                         <img className="photo-feed" src={photo.photo}  />
-                        <button onClick={() => handleRemovePhoto(photo._id)}>Remove From Feed</button>
+                    <button className="remove-btn" onClick={() => handleRemovePhoto(photo._id)}>Remove From Feed</button>
                     </div>
+                    </>
                 );
             })}
-    </>
+    </div>
   );
 }

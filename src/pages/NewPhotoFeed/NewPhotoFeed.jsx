@@ -25,7 +25,7 @@ export default function NewPhotoFeed() {
 
     return (
         <>
-            <label className="search-form">Disover images below</label>
+            <label className="search-title">Disover images below</label>
             <form className="search-form" onSubmit={handleSubmit}>       
                 <input 
                 name="q"
@@ -33,16 +33,18 @@ export default function NewPhotoFeed() {
                 value={q}
                 onChange={handleChange}
                 required />
-                <button type="submit">Search</button>
+                <button className="search-btn" type="submit">Search</button>
             </form>
+            <div className="photo-feed-container">
             {photos.map((photo) => {
                 return (
-                    <div className="discover-container" key={photo.id}>
-                        <img className="discover-imgs" src={photo.previewURL}  />
-                        <button onClick={() => handleAddToFeed(photo.id)}>Add To Feed</button>
+                    <div className="search-photo-feed" key={photo.id}>
+                        <img className="photo-feed" src={photo.previewURL}  />
+                        <button  className="search-btn" onClick={() => handleAddToFeed(photo.id)}>Add To Feed</button>
                     </div>
                 );
             })}
+            </div>
         </>
     );
 }
